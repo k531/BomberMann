@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kola.bombermann.BomberMann">
+   <children>
+      <VBox alignment="CENTER" prefHeight="750.0" prefWidth="750.0">
+         <children>
+            <Label fx:id="winnerName" text="Winner" textAlignment="CENTER">
+               <font>
+                  <Font size="77.0" />
+               </font>
+            </Label>
+            <Button fx:id="backMenu" mnemonicParsing="false" onMouseClicked="#backToMenu" prefHeight="50.0" prefWidth="250.0" text="Back To Menu" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

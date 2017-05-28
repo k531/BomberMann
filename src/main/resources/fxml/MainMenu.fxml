@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.kola.bombermann.BomberMann">
+   <children>
+      <VBox alignment="CENTER" prefHeight="750.0" prefWidth="750.0" spacing="100.0">
+         <children>
+            <Button fx:id="newGame" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#startNewGame" prefHeight="50.0" prefWidth="200.0" text="NEW GAME" textOverrun="CLIP" />
+            <Button fx:id="loadGame" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#loadSave" prefHeight="50.0" prefWidth="200.0" text="LOAD GAME" textOverrun="CLIP" />
+            <Button fx:id="exit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#exitGame" prefHeight="50.0" prefWidth="200.0" text="EXIT" textOverrun="CLIP" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

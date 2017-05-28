@@ -1,0 +1,8 @@
+{
+    "name": "player2",
+    "up": "W",
+    "down": "S",
+    "left": "A",
+    "right": "D",
+    "bombDeploy":"SHIFT"
+}
