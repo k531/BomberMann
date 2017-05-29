@@ -21,7 +21,7 @@ public class MainApp extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainMenu.fxml"));
         
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles.css");
+        scene.getStylesheets().add("/styles/Styles.css");
         
         stage.setScene(scene);
         stage.setTitle("BomberMann");

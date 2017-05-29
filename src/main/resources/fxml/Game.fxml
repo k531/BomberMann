@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
@@ -11,7 +12,8 @@
 <AnchorPane id="AnchorPane" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" prefHeight="800.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kola.bombermann.BomberMann">
    <children>
       <Canvas fx:id="playArea" height="750.0" layoutY="50.0" width="750.0" />
-      <Label fx:id="player2Score" alignment="CENTER" layoutX="550.0" prefHeight="50.0" prefWidth="200.0" text="Player2" textAlignment="CENTER" />
+      <Label fx:id="player2Score" alignment="CENTER" layoutX="600.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: blue;" text="Player2" textAlignment="CENTER" textFill="WHITE" />
+      <Label fx:id="player2Score1" alignment="CENTER" layoutX="450.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: red;" text="Player1" textAlignment="CENTER" textFill="WHITE" />
       <VBox alignment="CENTER" layoutX="325.0" prefHeight="50.0" prefWidth="100.0">
          <children>
             <Button fx:id="playB" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#play" prefHeight="100.0" prefWidth="100.0" text="Play" />

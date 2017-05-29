@@ -31,7 +31,7 @@ public class GameLoop extends AnimationTimer {
     private GraphicsContext gc;
     private ArrayList<String> input = new ArrayList<String>();
     private ArrayList<ControllKeys> controllKeys = new ArrayList<>();
-    private final Image playerImage;
+    private final Image playerImage[];
     private final Image blockImage;
     private final Image bombImage;
     private final Image destroyableBlockImage;
@@ -46,7 +46,9 @@ public class GameLoop extends AnimationTimer {
         controllKeys.add(new ControllKeys("W", "S", "A", "D", "SHIFT"));
         this.game = game;
 
-        playerImage = new Image(getClass().getResourceAsStream("/images/player.png"), 30, 40, false, false);
+        playerImage = new Image[2];
+        playerImage[0] = new Image(getClass().getResourceAsStream("/images/player1.png"), 30, 40, false, false);
+        playerImage[1] = new Image(getClass().getResourceAsStream("/images/player2.png"), 30, 40, false, false);
         blockImage = new Image(getClass().getResourceAsStream("/images/block.png"), 50, 50, false, false);
         bombImage = new Image(getClass().getResourceAsStream("/images/bomb.png"), 50, 50, false, false);
         destroyableBlockImage = new Image(getClass().getResourceAsStream("/images/destroyableBlock.png"), 50, 50, false, false);
@@ -109,7 +111,7 @@ public class GameLoop extends AnimationTimer {
         }
 
         for (Player player : game.getPlayers()) {
-            gc.drawImage(playerImage, player.getX(), player.getY());
+            gc.drawImage(playerImage[player.getId()], player.getX(), player.getY());
         }
 
         for (Explosion explosionP : game.getGrid().getExplosionPs()) {
