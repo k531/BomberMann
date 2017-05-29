@@ -38,6 +38,8 @@ public class GameLoop extends AnimationTimer {
     private final Game game;
     private final Image speedImage;
     private final Image explosionImage;
+    private final Image moreBombImage;
+    private final Image biggerExplosionImage;
 
     public GameLoop(GraphicsContext gc, Game game){
         controllKeys.add(new ControllKeys("UP", "DOWN", "LEFT", "RIGHT", "ENTER"));
@@ -50,6 +52,8 @@ public class GameLoop extends AnimationTimer {
         destroyableBlockImage = new Image(getClass().getResourceAsStream("/images/destroyableBlock.png"), 50, 50, false, false);
         explosionImage = new Image(getClass().getResourceAsStream("/images/middleExplosion.png"), 50, 50, false, false);
         speedImage = new Image(getClass().getResourceAsStream("/images/speed.png"), 50, 50, false, false);
+        moreBombImage = new Image(getClass().getResourceAsStream("/images/moreBomb.png"), 50, 50, false, false);
+        biggerExplosionImage = new Image(getClass().getResourceAsStream("/images/biggerExplosion.png"), 50, 50, false, false);
         this.gc = gc;
     }
 
@@ -90,10 +94,10 @@ public class GameLoop extends AnimationTimer {
                     gc.drawImage(speedImage, powerUp.getX(), powerUp.getY());
                     break;
                 case 1:
-                    gc.drawImage(speedImage, powerUp.getX(), powerUp.getY());
+                    gc.drawImage(moreBombImage, powerUp.getX(), powerUp.getY());
                     break;
                 case 2:
-                    gc.drawImage(speedImage, powerUp.getX(), powerUp.getY());
+                    gc.drawImage(biggerExplosionImage, powerUp.getX(), powerUp.getY());
                     break;
                 default:
                     break;
