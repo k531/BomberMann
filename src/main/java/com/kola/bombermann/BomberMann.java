@@ -121,7 +121,8 @@ public class BomberMann implements Initializable {
     
     private void loadGame(){
         String savePath = System.getProperty("user.home") + "/.BoberMann";
-        game = ReadWriteSave.readXML(savePath + "/save.xml");
+        File file = new File(savePath + "/save.xml");
+        game = ReadWriteSave.readXML(file);
         game.initGridObjectFactory();
         makeGameStateListener();
         gameloop = new GameLoop(playArea.getGraphicsContext2D(), game);
@@ -142,16 +143,20 @@ public class BomberMann implements Initializable {
 
     @FXML
     private void loadSave(MouseEvent event) throws IOException {
-        Stage stage; 
-        Parent root;
-        stage=(Stage) newGame.getScene().getWindow();
-        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/fxml/Game.fxml"));
-        root = fXMLLoader.load();
-        fXMLLoader.<BomberMann>getController().loadGame();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        logger.info("Loading existing game.");
+        String savePath = System.getProperty("user.home") + "/.BoberMann";
+        File file = new File(savePath + "/save.xml");
+        if(file.exists()){
+            Stage stage; 
+            Parent root;
+            stage=(Stage) newGame.getScene().getWindow();
+            FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/fxml/Game.fxml"));
+            root = fXMLLoader.load();
+            fXMLLoader.<BomberMann>getController().loadGame();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            logger.info("Loading existing game.");
+        }
     }
 
     @FXML

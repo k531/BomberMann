@@ -27,14 +27,14 @@ public class ReadWriteSave {
     /**
      * Read the saved file and return with it.
      *
-     * @param fileName the name of the save file
+     * @param file the save file
      * @return the loaded Game object
      */
-    public static Game readXML(String fileName) {
+    public static Game readXML(File file) {
 
         InputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream(new File(fileName));
+            fileInputStream = new FileInputStream(file);
             JAXBContext jaxbContext = JAXBContext.newInstance(Game.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             return (Game) unmarshaller.unmarshal(fileInputStream);
