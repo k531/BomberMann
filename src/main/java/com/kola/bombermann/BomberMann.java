@@ -13,8 +13,6 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -29,12 +27,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author kola
  */
 public class BomberMann implements Initializable {
+    
+    final static Logger logger = LoggerFactory.getLogger(BomberMann.class);
 
     @FXML
     private Canvas playArea;
@@ -72,10 +74,12 @@ public class BomberMann implements Initializable {
             inGame = false;
             playB.setText("PLAY");
             gameloop.stop();
+            logger.info("Game paused.");
         } else {
             inGame = true;
             playB.setText("STOP");
             gameloop.start();
+            logger.info("Game started.");
         }
     }
 
@@ -102,7 +106,7 @@ public class BomberMann implements Initializable {
                 try {
                     goWinnerScreen();
                 } catch (IOException ex) {
-                    Logger.getLogger(BomberMann.class.getName()).log(Level.SEVERE, null, ex);
+                    logger.error(ex.getMessage());
                 }
                 
             }
@@ -133,6 +137,7 @@ public class BomberMann implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        logger.info("New game started.");
     }
 
     @FXML
@@ -146,12 +151,14 @@ public class BomberMann implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        logger.info("Loading existing game.");
     }
 
     @FXML
     private void exitGame(MouseEvent event) {
         Stage stage = (Stage) exit.getScene().getWindow();
         stage.close();
+        logger.info("The game closed.");
     }
     
     @FXML
@@ -163,8 +170,9 @@ public class BomberMann implements Initializable {
             tmpDir.mkdir();
             ReadWriteSave.writeXML(game, savePath + "/save.xml");
         } catch (JAXBException ex) {
-            Logger.getLogger(BomberMann.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex.getMessage());
         }
+        logger.info("Saving game state.");
        
     }
     @FXML
@@ -177,10 +185,12 @@ public class BomberMann implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        logger.info("Changed the scene to main menu.");
     }
     
     private void setWinner(int id){
             winnerName.setText("Player " + id + " Wins");
+            logger.info("The game winner is the Player " + id);
     }
     
     @FXML
@@ -199,6 +209,7 @@ public class BomberMann implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        logger.info("Changed the scene to winner scene.");
     }
 
 }

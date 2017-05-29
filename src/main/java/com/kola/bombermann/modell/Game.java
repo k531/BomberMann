@@ -5,6 +5,7 @@
  */
 package com.kola.bombermann.modell;
 
+import com.kola.bombermann.BomberMann;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.xml.bind.annotation.XmlAccessType;
