@@ -1,2 +1,3 @@
-#A BomberMann JavaFx implementation
+A BomberMann JavaFx implementation
+==================================
 
